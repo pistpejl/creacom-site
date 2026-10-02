@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState, type FormEvent, type PointerEvent } from "react";
 import { ArrowUpRight, ChevronLeft, ChevronRight, Menu, Plus, X } from "lucide-react";
 import { copyByLang, type Lang } from "@/content/copy";
+import { withBase } from "@/lib/base-path";
 
 const LINKEDIN = "https://www.linkedin.com/in/fredrik-roos-1b252726";
-const SERVICE_IMAGES = ["/images/offer-strategy.jpg", "/images/offer-project.jpg", "/images/offer-ux.jpg", "/images/offer-pim.jpg"];
+const SERVICE_IMAGES = [withBase("/images/offer-strategy.jpg"), withBase("/images/offer-project.jpg"), withBase("/images/offer-ux.jpg"), withBase("/images/offer-pim.jpg")];
 const ERIK_LINE_SV =
   "Erik  ·  AI-prototyper  ·  Produkttexter  ·  Agenter  ·  Video med AI  ·  AI i sprinten  ·  Agil Scrum  ·  Appar  ·  ";
 const ERIK_LINE_EN =
@@ -18,7 +19,7 @@ export function HomePage({ lang }: { lang: Lang }) {
   const [draft, setDraft] = useState({ name: "", company: "", email: "", message: "" });
   const heroSlides = [
     {
-      src: lang === "sv" ? "/images/hero-banner.png" : "/images/hero-banner-en-v2.jpg",
+      src: lang === "sv" ? withBase("/images/hero-banner.png") : withBase("/images/hero-banner-en-v2.jpg"),
       alt:
         lang === "sv"
           ? "Fredrik Roos. Creacom Consulting AB är hans konsultbolag i Stockholm och hjälper företag som säljer online, både mot konsument och mot andra företag."
@@ -27,7 +28,7 @@ export function HomePage({ lang }: { lang: Lang }) {
       title: "",
     },
     {
-      src: "/images/erik-kick.png?v=6",
+      src: withBase("/images/erik-kick.png?v=6"),
       alt: lang === "sv" ? "Möt Erik. Han sparkar och jonglerar sina skills." : "Meet Erik. He kicks and juggles his skills.",
       kicker: lang === "sv" ? "Nytt" : "New",
       title: lang === "sv" ? "Möt Erik" : "Meet Erik",
@@ -280,7 +281,7 @@ export function HomePage({ lang }: { lang: Lang }) {
             <p className="font-mono text-xs tracking-widest text-accent uppercase">{copy.about.kicker}</p>
             <div className="mt-8 flex flex-col gap-6 sm:flex-row sm:items-center">
               <img
-                src="/images/fredrik.png"
+                src={withBase("/images/fredrik.png")}
                 alt="Fredrik Roos"
                 width={128}
                 height={128}
@@ -295,7 +296,7 @@ export function HomePage({ lang }: { lang: Lang }) {
             <div className="mt-16 grid items-center gap-8 md:grid-cols-2">
               <div className="relative flex justify-end md:order-2">
                 <img
-                  src="/images/erik-kick.png?v=6"
+                  src={withBase("/images/erik-kick.png?v=6")}
                   alt={lang === "sv" ? "Erik gör en taekwondospark och jonglerar bollar med Scrum, projekt, appar, video, AI, kod, agent och text" : "Erik throwing a taekwondo kick while juggling balls labeled Scrum, project, apps, video, AI, code, agent and text"}
                   width={966}
                   height={1492}
@@ -304,7 +305,7 @@ export function HomePage({ lang }: { lang: Lang }) {
               </div>
               <div className="flex flex-col gap-6 sm:flex-row sm:items-center md:order-1">
                 <img
-                  src="/images/erik.png"
+                  src={withBase("/images/erik.png")}
                   alt="Erik"
                   width={900}
                   height={900}
@@ -427,13 +428,13 @@ export function HomePage({ lang }: { lang: Lang }) {
               <p className="mt-2">© 2026 Creacom Consulting AB</p>
             </div>
             <div className="flex gap-8">
-              <a href="/erik" className="min-h-11 py-2 uppercase">
+              <a href={withBase("/erik")} className="min-h-11 py-2 uppercase">
                 Erik
               </a>
-              <a href="/ux" className="min-h-11 py-2 uppercase">
+              <a href={withBase("/ux")} className="min-h-11 py-2 uppercase">
                 UX
               </a>
-              <a href="/tidigare" className="min-h-11 py-2 uppercase">
+              <a href={withBase("/tidigare")} className="min-h-11 py-2 uppercase">
                 {copy.footer.archive}
               </a>
               <a href={LINKEDIN} className="min-h-11 py-2 uppercase" target="_blank" rel="noreferrer">
@@ -450,13 +451,13 @@ export function HomePage({ lang }: { lang: Lang }) {
 function LangSwitch({ lang }: { lang: Lang }) {
   return (
     <div className="flex items-center gap-2 font-mono text-xs tracking-widest">
-      <a href="/" hrefLang="sv" aria-current={lang === "sv" ? "page" : undefined} className={`inline-flex min-h-11 items-center ${lang === "sv" ? "text-fg" : "text-muted"}`}>
+      <a href={withBase("/")} hrefLang="sv" aria-current={lang === "sv" ? "page" : undefined} className={`inline-flex min-h-11 items-center ${lang === "sv" ? "text-fg" : "text-muted"}`}>
         SV
       </a>
       <span className="text-muted" aria-hidden>
         /
       </span>
-      <a href="/en" hrefLang="en" aria-current={lang === "en" ? "page" : undefined} className={`inline-flex min-h-11 items-center ${lang === "en" ? "text-fg" : "text-muted"}`}>
+      <a href={withBase("/en")} hrefLang="en" aria-current={lang === "en" ? "page" : undefined} className={`inline-flex min-h-11 items-center ${lang === "en" ? "text-fg" : "text-muted"}`}>
         EN
       </a>
     </div>

@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { withBase } from "@/lib/base-path";
 
 export const Route = createFileRoute("/erik")({
   head: () => ({
@@ -24,9 +25,9 @@ function ErikPage() {
         </Link>
         <p className="font-mono text-xs tracking-[0.2em] text-[#ff2bd6] uppercase">Erik</p>
       </div>
-      <img src="/images/erik-kliver.jpg" alt="Erik kliver in genom dörren" width={1152} height={1728} className="mx-auto w-full max-w-3xl" />
+      <img src={withBase("/images/erik-kliver.jpg")} alt="Erik kliver in genom dörren" width={1152} height={1728} className="mx-auto w-full max-w-3xl" />
       <img
-        src="/images/erik-jonglerar.png"
+        src={withBase("/images/erik-jonglerar.png")}
         alt="Erik jonglerar bollar märkta Scrum, projekt, appar, video, AI och kod"
         width={1152}
         height={1728}

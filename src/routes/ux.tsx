@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
+import { withBase } from "@/lib/base-path";
 
 export const Route = createFileRoute("/ux")({
   head: () => ({
@@ -13,10 +14,10 @@ export const Route = createFileRoute("/ux")({
 });
 
 const services = [
-  ["01", "Strategy and business analysis", "Needs become a brief that both leadership and the team can work from.", "/images/offer-strategy.jpg"],
-  ["02", "Project management", "From scope to delivery. The bridge between the buyer and the people who build.", "/images/offer-project.jpg"],
-  ["03", "Design, UX and marketing", "Interfaces and campaigns based on how the customer buys.", "/images/offer-ux.jpg"],
-  ["04", "Product information and technology", "One source for product data, and requirements the team can take further.", "/images/offer-pim.jpg"],
+  ["01", "Strategy and business analysis", "Needs become a brief that both leadership and the team can work from.", withBase("/images/offer-strategy.jpg")],
+  ["02", "Project management", "From scope to delivery. The bridge between the buyer and the people who build.", withBase("/images/offer-project.jpg")],
+  ["03", "Design, UX and marketing", "Interfaces and campaigns based on how the customer buys.", withBase("/images/offer-ux.jpg")],
+  ["04", "Product information and technology", "One source for product data, and requirements the team can take further.", withBase("/images/offer-pim.jpg")],
 ];
 
 const cases = [
@@ -45,7 +46,7 @@ function UxPage() {
       <div className="relative z-10">
         <header className="sticky top-0 z-40 bg-bg/80 backdrop-blur-sm">
           <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-5">
-            <a href="/en" className="leading-none">
+            <a href={withBase("/en")} className="leading-none">
               <span className="text-lg font-medium tracking-tight">creacom</span>
               <span className="mt-1 block font-mono text-[9px] tracking-[0.28em] text-muted uppercase">Consulting AB</span>
             </a>
@@ -60,15 +61,15 @@ function UxPage() {
                   {label}
                 </a>
               ))}
-              <a href="/en" className="text-sm tracking-wide text-fg uppercase">
+              <a href={withBase("/en")} className="text-sm tracking-wide text-fg uppercase">
                 EN
               </a>
-              <a href="/en#contact" className="inline-flex min-h-11 items-center gap-2 rounded-full bg-accent px-4 text-sm font-medium text-fg">
+              <a href={withBase("/en#contact")} className="inline-flex min-h-11 items-center gap-2 rounded-full bg-accent px-4 text-sm font-medium text-fg">
                 Get in touch
                 <ArrowUpRight className="size-4" />
               </a>
             </nav>
-            <a href="/en" className="text-sm tracking-widest text-muted uppercase lg:hidden">
+            <a href={withBase("/en")} className="text-sm tracking-widest text-muted uppercase lg:hidden">
               EN
             </a>
           </div>
@@ -77,7 +78,7 @@ function UxPage() {
         <main>
           <section className="mx-auto max-w-6xl px-5 pt-8">
             <img
-              src="/images/hero-banner-en-v2.jpg"
+              src={withBase("/images/hero-banner-en-v2.jpg")}
               alt="Fredrik Roos. From strategy to results — for your commerce."
               width={1600}
               height={1000}
@@ -144,7 +145,7 @@ function UxPage() {
           <section id="about" className="mx-auto max-w-6xl px-5 py-16 md:py-20">
             <p className="font-mono text-xs tracking-widest text-accent uppercase">/About</p>
             <div className="mt-8 flex flex-col gap-6 sm:flex-row sm:items-center">
-              <img src="/images/fredrik.png" alt="Fredrik Roos" width={128} height={128} className="portrait-glow size-28 rounded-full object-cover" />
+              <img src={withBase("/images/fredrik.png")} alt="Fredrik Roos" width={128} height={128} className="portrait-glow size-28 rounded-full object-cover" />
               <div>
                 <h2 className="text-3xl font-medium tracking-tight uppercase md:text-4xl">Fredrik Roos</h2>
                 <p className="mt-3 text-lg text-fg">
@@ -163,7 +164,7 @@ function UxPage() {
                 Same page in <span className="text-accent">English</span>
               </h2>
               <p className="mx-auto mt-4 max-w-xl text-muted">The Swedish and English sites share this layout. The hero image carries the language.</p>
-              <a href="/en" className="mt-8 inline-flex min-h-11 items-center bg-fg px-6 text-sm font-medium tracking-widest text-bg uppercase">
+              <a href={withBase("/en")} className="mt-8 inline-flex min-h-11 items-center bg-fg px-6 text-sm font-medium tracking-widest text-bg uppercase">
                 Open the English page
               </a>
             </div>
@@ -176,7 +177,7 @@ function UxPage() {
               <p className="text-fg">Creacom.</p>
               <p className="mt-2">© 2026 Creacom Consulting AB</p>
             </div>
-            <a href="/en" className="min-h-11 py-2 uppercase">
+            <a href={withBase("/en")} className="min-h-11 py-2 uppercase">
               English site
             </a>
           </div>

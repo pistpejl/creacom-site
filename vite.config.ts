@@ -149,7 +149,15 @@ function authPopupPlugin(): Plugin {
 // Nitro/Vercel server build. See scripts/build-static.mjs / `npm run build:static`.
 const staticExport = process.env.STATIC_EXPORT === "1";
 
+// Public base path. BASE_PATH="/creacom-site/" serves the site from a subpath
+// (https://pistpejl.github.io/creacom-site/); unset/"/" = served from a domain
+// root (custom domain). Vite `base` prefixes the built assets; the TanStack
+// router basepath is set to the same value so routing/hydration match.
+const basePath = `/${(process.env.BASE_PATH ?? "/").replace(/^\/+|\/+$/g, "")}/`.replace(/\/{2,}/g, "/");
+const routerBasepath = basePath.replace(/^\/|\/$/g, "");
+
 export default defineConfig(({ command, isPreview }) => ({
+  base: basePath,
   server: {
     host: "0.0.0.0",
     port: 8080,
@@ -172,6 +180,7 @@ export default defineConfig(({ command, isPreview }) => ({
     tailwindcss(),
     staticExport
       ? tanstackStart({
+          router: { basepath: routerBasepath },
           prerender: { enabled: true, crawlLinks: true, autoSubfolderIndex: true, failOnError: true },
           pages: [
             { path: "/" },

@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from "react";
 import { ArrowUpRight, Menu, Plus, X } from "lucide-react";
 import { copyByLang, type Lang } from "@/content/copy";
+import { withBase } from "@/lib/base-path";
 
 const LINKEDIN = "https://www.linkedin.com/in/fredrik-roos-1b252726";
 
@@ -104,7 +105,7 @@ export function EditorialPage({ lang }: { lang: Lang }) {
             </h1>
             <div className="md:col-span-5 md:pt-2">
               <img
-                src="/images/fredrik.png"
+                src={withBase("/images/fredrik.png")}
                 alt="Fredrik Roos"
                 width={256}
                 height={256}
@@ -192,7 +193,7 @@ export function EditorialPage({ lang }: { lang: Lang }) {
           <section id={copy.about.id} className="mx-auto max-w-6xl px-5 py-16 md:py-24">
             <div className="flex items-center gap-5">
               <img
-                src="/images/fredrik.png"
+                src={withBase("/images/fredrik.png")}
                 alt=""
                 width={96}
                 height={96}
@@ -324,13 +325,13 @@ export function EditorialPage({ lang }: { lang: Lang }) {
 function LangSwitch({ lang }: { lang: Lang }) {
   return (
     <div className="flex items-center gap-2 font-mono text-xs tracking-widest">
-      <a href="/" hrefLang="sv" aria-current={lang === "sv" ? "page" : undefined} className={`inline-flex min-h-11 items-center ${lang === "sv" ? "text-fg" : "text-muted"}`}>
+      <a href={withBase("/")} hrefLang="sv" aria-current={lang === "sv" ? "page" : undefined} className={`inline-flex min-h-11 items-center ${lang === "sv" ? "text-fg" : "text-muted"}`}>
         SV
       </a>
       <span className="text-muted" aria-hidden>
         /
       </span>
-      <a href="/en" hrefLang="en" aria-current={lang === "en" ? "page" : undefined} className={`inline-flex min-h-11 items-center ${lang === "en" ? "text-fg" : "text-muted"}`}>
+      <a href={withBase("/en")} hrefLang="en" aria-current={lang === "en" ? "page" : undefined} className={`inline-flex min-h-11 items-center ${lang === "en" ? "text-fg" : "text-muted"}`}>
         EN
       </a>
     </div>

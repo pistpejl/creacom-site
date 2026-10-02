@@ -12,6 +12,7 @@
     "db:migrate": "node scripts/migrate.mjs",
     "build:dev": "node scripts/with-app-env.mjs vite build --mode development",
     "build:static": "node scripts/build-static.mjs",
+    "build:static:ghio": "node scripts/build-static.mjs --host=pistpejl.github.io --base=/creacom-site/ --no-cname",
     "preview": "node scripts/with-app-env.mjs vite preview",
     "preview:restart": "node scripts/preview.mjs restart",
     "preview:stop": "node scripts/preview.mjs stop",
