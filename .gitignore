@@ -1,0 +1,15 @@
+node_modules
+.grok
+.vercel
+.tanstack
+screenshots
+attachments
+artifacts
+dist
+*.log
+.project_id
+.node_modules.lock
+AGENTS.md
+.env
+.env.*
+.creacom-check.mjs

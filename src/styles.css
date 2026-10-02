@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #050505;
+  --color-fg: #f4f4f4;
+  --color-muted: #8d8d8d;
+  --color-accent: #ff2bd6;
+  --color-line: #2a2a2a;
+  --color-card: #0c0c0c;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-mono: "DM Mono", ui-monospace, monospace;
+}
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background:
+      linear-gradient(165deg, #160612 0%, #050505 36%, #120510 70%, #050505 100%);
+    background-attachment: fixed;
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+.soft-frame {
+  position: relative;
+  border-radius: 1.75rem;
+  background:
+    radial-gradient(120% 90% at 0% 0%, rgba(255, 43, 214, 0.14), transparent 46%),
+    rgba(14, 14, 14, 0.72);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 0 64px rgba(255, 43, 214, 0.12);
+}
+
+.portrait-glow {
+  box-shadow:
+    0 0 0 1px rgba(255, 43, 214, 0.4),
+    0 0 56px rgba(255, 43, 214, 0.45);
+}
+
+.field-input {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(5, 5, 5, 0.45);
+  box-shadow: inset 0 0 24px rgba(255, 255, 255, 0.02);
+}
+
+.page-glow {
+  position: fixed;
+  inset: -25%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(closest-side at 18% 12%, rgba(255, 43, 214, 0.32), transparent 72%),
+    radial-gradient(closest-side at 86% 28%, rgba(196, 0, 160, 0.22), transparent 70%),
+    radial-gradient(closest-side at 74% 86%, rgba(255, 80, 210, 0.16), transparent 72%),
+    radial-gradient(closest-side at 10% 78%, rgba(120, 0, 90, 0.24), transparent 68%),
+    linear-gradient(180deg, #160612 0%, transparent 32%, transparent 68%, #0c050a 100%);
+  animation: glow-drift 26s ease-in-out infinite alternate;
+}
+
+@keyframes glow-drift {
+  from {
+    transform: translate3d(-2%, 0, 0);
+  }
+  to {
+    transform: translate3d(2%, -3%, 0);
+  }
+}
+
+.field-input:focus {
+  border-color: rgba(255, 43, 214, 0.55);
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(255, 43, 214, 0.14);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
