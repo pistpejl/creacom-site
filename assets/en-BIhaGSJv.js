@@ -1,1 +1,0 @@
-import{t as e}from"./home-page-e2SDg6sj.js";import{i as t}from"./index-Bj5iSQcQ.js";var n=t(),r=()=>(0,n.jsx)(e,{lang:`en`});export{r as component};
