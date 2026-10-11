@@ -1,1 +1,0 @@
-import{a as e,n as t}from"./index-CW_gxc9W.js";var n=e();function r({className:e=`h-7 w-auto md:h-8`}){return(0,n.jsx)(`img`,{src:t(`/images/creacom-logo-white.svg`),alt:`Creacom`,width:314,height:73,decoding:`async`,className:`block ${e}`})}export{r as t};

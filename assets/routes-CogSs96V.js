@@ -1,0 +1,1 @@
+import{t as e}from"./home-page-DxAP-yim.js";import{a as t}from"./index-c634fFW6.js";var n=t(),r=()=>(0,n.jsx)(e,{lang:`sv`});export{r as component};
