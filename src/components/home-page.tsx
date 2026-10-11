@@ -113,7 +113,6 @@ export function HomePage({ lang }: { lang: Lang }) {
           <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-5">
             <a href={withBase(lang === "en" ? "/en" : "/")} className="leading-none" aria-label="Creacom">
               <CreacomLogo />
-              <span className="mt-1.5 block font-mono text-[9px] tracking-[0.28em] text-muted uppercase">Consulting AB</span>
             </a>
             <nav className="hidden items-center gap-6 lg:flex">
               {copy.nav.map((item) => (

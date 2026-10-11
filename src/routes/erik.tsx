@@ -22,7 +22,7 @@ function ErikPage() {
       `}</style>
       <div className="mx-auto flex max-w-3xl items-center justify-between px-5 py-4">
         <Link to="/" className="leading-none" aria-label="Creacom">
-          <CreacomLogo className="h-6 w-auto md:h-7" />
+          <CreacomLogo className="h-7 w-auto md:h-[34px]" />
         </Link>
         <p className="font-mono text-xs tracking-[0.2em] text-[#ff2bd6] uppercase">Erik</p>
       </div>
