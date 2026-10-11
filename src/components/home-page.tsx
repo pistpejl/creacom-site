@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type FormEvent, type PointerEvent } from "
 import { ArrowUpRight, ChevronLeft, ChevronRight, Menu, Plus, X } from "lucide-react";
 import { copyByLang, type Lang } from "@/content/copy";
 import { withBase } from "@/lib/base-path";
+import { CreacomLogo } from "@/components/creacom-logo";
 
 const LINKEDIN = "https://www.linkedin.com/in/fredrik-roos-1b252726";
 const SERVICE_IMAGES = [withBase("/images/offer-strategy.jpg"), withBase("/images/offer-project.jpg"), withBase("/images/offer-ux.jpg"), withBase("/images/offer-pim.jpg")];
@@ -110,9 +111,9 @@ export function HomePage({ lang }: { lang: Lang }) {
 
         <header className="sticky top-0 z-40 bg-bg/80 backdrop-blur-sm">
           <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-5">
-            <a href="#topp" className="leading-none">
-              <span className="text-lg font-medium tracking-tight">creacom</span>
-              <span className="mt-1 block font-mono text-[9px] tracking-[0.28em] text-muted uppercase">Consulting AB</span>
+            <a href={withBase(lang === "en" ? "/en" : "/")} className="leading-none" aria-label="Creacom">
+              <CreacomLogo />
+              <span className="mt-1.5 block font-mono text-[9px] tracking-[0.28em] text-muted uppercase">Consulting AB</span>
             </a>
             <nav className="hidden items-center gap-6 lg:flex">
               {copy.nav.map((item) => (

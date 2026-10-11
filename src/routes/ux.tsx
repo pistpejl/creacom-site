@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { withBase } from "@/lib/base-path";
+import { CreacomLogo } from "@/components/creacom-logo";
 
 export const Route = createFileRoute("/ux")({
   head: () => ({
@@ -46,9 +47,9 @@ function UxPage() {
       <div className="relative z-10">
         <header className="sticky top-0 z-40 bg-bg/80 backdrop-blur-sm">
           <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-5">
-            <a href={withBase("/en")} className="leading-none">
-              <span className="text-lg font-medium tracking-tight">creacom</span>
-              <span className="mt-1 block font-mono text-[9px] tracking-[0.28em] text-muted uppercase">Consulting AB</span>
+            <a href={withBase("/en")} className="leading-none" aria-label="Creacom">
+              <CreacomLogo />
+              <span className="mt-1.5 block font-mono text-[9px] tracking-[0.28em] text-muted uppercase">Consulting AB</span>
             </a>
             <nav className="hidden items-center gap-6 lg:flex">
               {[

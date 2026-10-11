@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { withBase } from "@/lib/base-path";
+import { CreacomLogo } from "@/components/creacom-logo";
 
 export const Route = createFileRoute("/erik")({
   head: () => ({
@@ -20,8 +21,8 @@ function ErikPage() {
         @media (prefers-reduced-motion: reduce) { .erik-roll { animation: none; } }
       `}</style>
       <div className="mx-auto flex max-w-3xl items-center justify-between px-5 py-4">
-        <Link to="/" className="text-sm text-white/70">
-          creacom
+        <Link to="/" className="leading-none" aria-label="Creacom">
+          <CreacomLogo className="h-6 w-auto md:h-7" />
         </Link>
         <p className="font-mono text-xs tracking-[0.2em] text-[#ff2bd6] uppercase">Erik</p>
       </div>

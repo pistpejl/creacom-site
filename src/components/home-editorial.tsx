@@ -2,6 +2,7 @@ import { useState, type FormEvent } from "react";
 import { ArrowUpRight, Menu, Plus, X } from "lucide-react";
 import { copyByLang, type Lang } from "@/content/copy";
 import { withBase } from "@/lib/base-path";
+import { CreacomLogo } from "@/components/creacom-logo";
 
 const LINKEDIN = "https://www.linkedin.com/in/fredrik-roos-1b252726";
 
@@ -50,8 +51,8 @@ export function EditorialPage({ lang }: { lang: Lang }) {
 
         <header className="sticky top-0 z-40 bg-bg/80 backdrop-blur-sm">
           <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-5">
-            <a href="#topp" className="text-lg font-medium tracking-tight">
-              Creacom.
+            <a href={withBase("/")} className="leading-none" aria-label="Creacom">
+              <CreacomLogo />
             </a>
             <nav className="hidden items-center gap-6 lg:flex">
               {copy.nav.map((item) => (
